@@ -23,7 +23,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo e descrição */}
           <div className="md:col-span-2">
-            <Logo variant="white" className="w-32 mb-6" showTagline />
+            <Logo variant="red" className="w-32 mb-6" showTagline />
             <p className="text-white/60 text-sm max-w-md mt-4">
               Unimos midia, dados e tecnologia para transformar informacao em performance real.
             </p>

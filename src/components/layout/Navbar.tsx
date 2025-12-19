@@ -62,7 +62,7 @@ export function Navbar() {
         <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <Logo variant="white" className="w-28 md:w-32" />
+            <Logo variant="red" className="w-28 md:w-32" />
           </Link>
 
           {/* Desktop Navigation */}

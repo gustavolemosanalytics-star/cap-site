@@ -43,7 +43,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center mb-12"
         >
-          <Logo variant="white" className="w-48 md:w-64 lg:w-80" />
+          <Logo variant="red" className="w-48 md:w-64 lg:w-80" />
         </motion.div>
 
         {/* Titulo principal */}

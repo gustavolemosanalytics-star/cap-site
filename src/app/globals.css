@@ -182,3 +182,38 @@ body {
     transform: scale(0.95);
   }
 }
+
+/* Logo auto-switch: red no fundo escuro, dark no fundo claro */
+/* Por padrao (fundo escuro), mostra logo red e esconde dark */
+.logo-dark-bg {
+  display: block;
+}
+
+.logo-light-bg {
+  display: none;
+}
+
+.tagline-auto {
+  color: var(--primary-red);
+}
+
+/* Em secoes com fundo claro (cream), inverte */
+.bg-cream .logo-dark-bg,
+.bg-\[\#E6E1C3\] .logo-dark-bg,
+[class*="bg-cream"] .logo-dark-bg,
+[style*="E6E1C3"] .logo-dark-bg {
+  display: none;
+}
+
+.bg-cream .logo-light-bg,
+.bg-\[\#E6E1C3\] .logo-light-bg,
+[class*="bg-cream"] .logo-light-bg,
+[style*="E6E1C3"] .logo-light-bg {
+  display: block;
+}
+
+.bg-cream .tagline-auto,
+.bg-\[\#E6E1C3\] .tagline-auto,
+[class*="bg-cream"] .tagline-auto {
+  color: var(--dark);
+}
