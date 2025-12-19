@@ -1,13 +1,13 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { Logo } from "@/components/shared/Logo"
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/agencia", label: "Agencia" },
-  { href: "/inteligencia", label: "Inteligencia" },
+  { href: "/agencia", label: "Agência" },
+  { href: "/inteligencia", label: "Inteligência" },
   { href: "/lps-sites", label: "LPs & Sites" }
 ]
 
@@ -23,16 +23,22 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo e descrição */}
           <div className="md:col-span-2">
-            <Logo variant="red" className="w-32 mb-6" showTagline />
+            <Image
+              src="/logo.png"
+              alt="CAP.CO Logo"
+              width={128}
+              height={36}
+              className="w-32 h-auto"
+            />
             <p className="text-white/60 text-sm max-w-md mt-4">
-              Unimos midia, dados e tecnologia para transformar informacao em performance real.
+              Unimos mídia, dados e tecnologia para transformar informação em performance real.
             </p>
           </div>
 
           {/* Links de navegação */}
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Navegacao
+              Navegação
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (

@@ -4,28 +4,45 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Logo } from "@/components/shared/Logo"
 import { Button } from "@/components/shared/Button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/agencia", label: "Agencia" },
-  { href: "/inteligencia", label: "Inteligencia" },
+  { href: "/agencia", label: "Agência" },
+  { href: "/inteligencia", label: "Inteligência" },
   { href: "/lps-sites", label: "LPs & Sites" }
 ]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLightBackground, setIsLightBackground] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+
+      // Detectar se está em uma seção com fundo claro
+      const sections = document.querySelectorAll("section")
+      const navbarHeight = 80
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect()
+        if (rect.top <= navbarHeight && rect.bottom >= navbarHeight) {
+          const bgColor = window.getComputedStyle(section).backgroundColor
+          // Verificar se é fundo claro (cream)
+          const isLight = bgColor.includes("230, 225, 195") ||
+                          section.classList.contains("bg-[#E6E1C3]") ||
+                          section.className.includes("E6E1C3")
+          setIsLightBackground(isLight)
+        }
+      })
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll() // Checar estado inicial
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -55,16 +72,13 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-[#1E1E1E]/80 backdrop-blur-nav border-b border-white/5"
+            ? isLightBackground
+              ? "bg-[#E6E1C3]/80 backdrop-blur-nav border-b border-black/5"
+              : "bg-[#1E1E1E]/80 backdrop-blur-nav border-b border-white/5"
             : "bg-transparent"
         )}
       >
         <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <Logo variant="red" className="w-28 md:w-32" />
-          </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -74,8 +88,8 @@ export function Navbar() {
                 className={cn(
                   "relative text-sm font-medium tracking-wide transition-colors duration-300",
                   pathname === link.href
-                    ? "text-white"
-                    : "text-white/60 hover:text-white"
+                    ? isLightBackground ? "text-[#1E1E1E]" : "text-white"
+                    : isLightBackground ? "text-[#1E1E1E]/60 hover:text-[#1E1E1E]" : "text-white/60 hover:text-white"
                 )}
               >
                 {link.label}
@@ -105,15 +119,15 @@ export function Navbar() {
           >
             <motion.span
               animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="w-6 h-0.5 bg-white block"
+              className={cn("w-6 h-0.5 block", isLightBackground && !isMobileMenuOpen ? "bg-[#1E1E1E]" : "bg-white")}
             />
             <motion.span
               animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="w-6 h-0.5 bg-white block"
+              className={cn("w-6 h-0.5 block", isLightBackground && !isMobileMenuOpen ? "bg-[#1E1E1E]" : "bg-white")}
             />
             <motion.span
               animate={isMobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="w-6 h-0.5 bg-white block"
+              className={cn("w-6 h-0.5 block", isLightBackground && !isMobileMenuOpen ? "bg-[#1E1E1E]" : "bg-white")}
             />
           </button>
         </nav>

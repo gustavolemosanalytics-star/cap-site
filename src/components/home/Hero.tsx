@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Logo } from "@/components/shared/Logo"
+import Image from "next/image"
 import { Counter } from "@/components/shared/Counter"
 import { ScrollIndicator } from "@/components/shared/ScrollIndicator"
-import { AnimatedText } from "@/components/shared/AnimatedText"
+import { RotatingText } from "@/components/shared/RotatingText"
 
 const stats = [
   { value: 10, prefix: "+", suffix: "MI", label: "investidos em anuncios" },
@@ -36,25 +36,45 @@ export function Hero() {
       />
 
       <div className="container mx-auto px-6 relative z-10 pt-24">
-        {/* Logo animado */}
+        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center mb-12"
         >
-          <Logo variant="red" className="w-48 md:w-64 lg:w-80" />
+          <Image
+            src="/logo.png"
+            alt="CAP.CO Logo"
+            width={320}
+            height={91}
+            className="w-48 md:w-64 lg:w-80 h-auto"
+            priority
+          />
         </motion.div>
 
-        {/* Titulo principal */}
+        {/* Titulo principal com RotatingText */}
         <div className="text-center max-w-5xl mx-auto mb-8">
-          <AnimatedText
-            text="Comunicacao e Alta Performance"
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
-            as="h1"
-            animation="words"
-            delay={0.5}
-          />
+          >
+            Comunicação e Alta{" "}
+            <RotatingText
+              texts={["Performance", "Capacidade", "Competência", "Eficiência"]}
+              mainClassName="px-3 md:px-4 bg-[#E6E1C3] text-[#1E1E1E] overflow-hidden py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom="last"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+          </motion.h1>
         </div>
 
         {/* Subtitulo */}
@@ -65,7 +85,7 @@ export function Hero() {
           className="text-center mb-16"
         >
           <span className="text-[#FD3434] text-xl md:text-2xl font-medium tracking-wide">
-            Solucoes Integradas
+            Soluções Integradas
           </span>
         </motion.div>
 
