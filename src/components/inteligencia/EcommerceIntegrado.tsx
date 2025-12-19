@@ -11,6 +11,24 @@ const platforms = [
   { name: "Shopify", icon: ShopifyIcon }
 ]
 
+const dashboards = [
+  {
+    title: "Dashboard E-commerce",
+    url: "https://dash-modelo-publi.vercel.app/",
+    domain: "dash-modelo-publi.vercel.app"
+  },
+  {
+    title: "Dashboard Analytics",
+    url: "https://dash-modelo-cap.vercel.app/",
+    domain: "dash-modelo-cap.vercel.app"
+  },
+  {
+    title: "Dashboard E-commerce Avançado",
+    url: "https://cap-dash-ecommerce.vercel.app/",
+    domain: "cap-dash-ecommerce.vercel.app"
+  }
+]
+
 const features = [
   {
     title: "Gestão Unificada",
@@ -89,62 +107,59 @@ export function EcommerceIntegrado({ id }: EcommerceIntegradoProps) {
           ))}
         </motion.div>
 
-        {/* Dashboard Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="relative mb-16"
-        >
-          {/* Browser mockup */}
-          <div className="bg-[#2A2A2A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            {/* Browser header */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-[#1E1E1E] border-b border-white/5">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
-                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-              </div>
-              <div className="flex-1 mx-4">
-                <div className="bg-white/5 rounded-md px-3 py-1.5 text-white/40 text-xs text-center max-w-md mx-auto">
-                  dash-modelo-publi.vercel.app
+        {/* Dashboards Grid */}
+        <div className="space-y-16 mb-20">
+          {dashboards.map((dashboard, index) => (
+            <motion.div
+              key={dashboard.url}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+              transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
+              className="relative"
+            >
+              {/* Browser mockup */}
+              <div className="bg-[#2A2A2A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                {/* Browser header */}
+                <div className="flex items-center gap-2 px-4 py-3 bg-[#1E1E1E] border-b border-white/5">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white/5 rounded-md px-3 py-1.5 text-white/40 text-xs text-center max-w-md mx-auto">
+                      {dashboard.domain}
+                    </div>
+                  </div>
+                </div>
+
+                {/* iframe do dashboard */}
+                <div className="relative aspect-[16/9] md:aspect-[2/1]">
+                  <iframe
+                    src={dashboard.url}
+                    className="absolute inset-0 w-full h-full"
+                    title={dashboard.title}
+                    loading="lazy"
+                  />
                 </div>
               </div>
-            </div>
 
-            {/* iframe do dashboard */}
-            <div className="relative aspect-[16/9] md:aspect-[2/1]">
-              <iframe
-                src="https://dash-modelo-publi.vercel.app/"
-                className="absolute inset-0 w-full h-full"
-                title="Dashboard E-commerce CAP.CO"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          {/* CTA overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1E1E1E] to-transparent pointer-events-none" />
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mb-20"
-        >
-          <a
-            href="https://dash-modelo-publi.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="primary" size="lg" magnetic>
-              Acessar Dashboard Demo
-              <ExternalLinkIcon className="w-4 h-4 ml-2" />
-            </Button>
-          </a>
-        </motion.div>
+              {/* CTA Button */}
+              <div className="text-center mt-6">
+                <a
+                  href={dashboard.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="primary" size="md" magnetic>
+                    Acessar {dashboard.title}
+                    <ExternalLinkIcon className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
