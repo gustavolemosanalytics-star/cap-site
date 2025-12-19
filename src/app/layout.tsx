@@ -17,10 +17,6 @@ export const metadata: Metadata = {
   description: "Agencia de marketing digital focada em performance, dados e inteligencia. Solucoes integradas em midia, dados e tecnologia para transformar informacao em resultados reais.",
   keywords: ["marketing digital", "performance", "google ads", "meta ads", "dados", "automacao", "IA", "Salvador", "Bahia"],
   authors: [{ name: "CAP.CO" }],
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-  },
   openGraph: {
     title: "CAP.CO | Comunicacao e Alta Performance",
     description: "Agencia de marketing digital focada em performance, dados e inteligencia.",
