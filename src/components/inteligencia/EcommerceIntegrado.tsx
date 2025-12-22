@@ -31,6 +31,11 @@ const dashboards = [
     title: "Dashboard B2B",
     url: "https://cap-dashmodelo-b2b.vercel.app/",
     domain: "cap-dashmodelo-b2b.vercel.app"
+  },
+  {
+    title: "Monitor de Imagem Política em Tempo Real",
+    url: "https://cap-ecoa.vercel.app/",
+    domain: "cap-ecoa.vercel.app"
   }
 ]
 
