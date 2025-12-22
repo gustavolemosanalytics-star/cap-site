@@ -26,6 +26,11 @@ const dashboards = [
     title: "Dashboard E-commerce Avançado",
     url: "https://cap-dash-ecommerce.vercel.app/",
     domain: "cap-dash-ecommerce.vercel.app"
+  },
+  {
+    title: "Dashboard B2B",
+    url: "https://cap-dashmodelo-b2b.vercel.app/",
+    domain: "cap-dashmodelo-b2b.vercel.app"
   }
 ]
 

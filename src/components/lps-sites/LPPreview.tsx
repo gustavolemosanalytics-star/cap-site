@@ -20,6 +20,11 @@ const lpModelos = [
     title: "Site Modelo",
     url: "https://site-cap-modelo.vercel.app/",
     domain: "site-cap-modelo.vercel.app"
+  },
+  {
+    title: "Site Modelo 2",
+    url: "https://cap-site-modelo-1.vercel.app/",
+    domain: "cap-site-modelo-1.vercel.app"
   }
 ]
 
