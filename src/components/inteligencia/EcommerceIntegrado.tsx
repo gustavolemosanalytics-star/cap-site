@@ -36,6 +36,11 @@ const dashboards = [
     title: "Monitor de Imagem Política em Tempo Real",
     url: "https://cap-ecoa.vercel.app/",
     domain: "cap-ecoa.vercel.app"
+  },
+  {
+    title: "Dashboard Imobiliário",
+    url: "https://cap-dashmodelo-imb.vercel.app/",
+    domain: "cap-dashmodelo-imb.vercel.app"
   }
 ]
 
