@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Navbar, Footer, SmoothScroll } from "@/components/layout"
-import { ProjectGallery, Features, RequestCTA, LPPreview } from "@/components/lps-sites"
+import { Features, RequestCTA, LPPreview } from "@/components/lps-sites"
 import { AnimatedText } from "@/components/shared/AnimatedText"
 import { Button } from "@/components/shared/Button"
 
@@ -99,7 +99,6 @@ export default function LPsSitesPage() {
         </section>
 
         <LPPreview id="lp-preview" />
-        <ProjectGallery />
         <Features />
         <RequestCTA />
       </main>

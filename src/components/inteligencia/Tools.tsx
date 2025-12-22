@@ -5,12 +5,12 @@ import { useRef } from "react"
 import { AnimatedText } from "@/components/shared/AnimatedText"
 
 const tools = [
-  { name: "Looker", category: "BI" },
-  { name: "Windsor.ai", category: "Integracao" },
+  { name: "React", category: "Frontend" },
+  { name: "Python", category: "Backend" },
+  { name: "MySQL", category: "Database" },
+  { name: "MongoDB", category: "Database" },
   { name: "n8n", category: "Automacao" },
-  { name: "Google Analytics", category: "Analytics" },
-  { name: "Tail", category: "CDP" },
-  { name: "Navegg", category: "DMP" }
+  { name: "Google Analytics", category: "Analytics" }
 ]
 
 export function Tools() {
