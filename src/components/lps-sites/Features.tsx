@@ -7,28 +7,28 @@ import { AnimatedText } from "@/components/shared/AnimatedText"
 const features = [
   {
     title: "Mobile First",
-    description: "Design responsivo priorizando a experiencia mobile, onde seus clientes estao.",
+    description: "Experiência pensada para onde a decisão acontece.",
     icon: MobileIcon,
     stat: "70%",
-    statLabel: "do trafego e mobile"
+    statLabel: "do tráfego é mobile"
   },
   {
-    title: "Otimizado para Conversao",
-    description: "Cada elemento pensado para guiar o usuario ate a acao desejada.",
+    title: "Otimizado para Conversão",
+    description: "Arquitetura de informação e CTA guiando a ação.",
     icon: ConversionIcon,
     stat: "+35%",
-    statLabel: "taxa de conversao"
+    statLabel: "taxa de conversão"
   },
   {
     title: "Tracking Completo",
-    description: "Eventos e micro-conversoes rastreados para analise detalhada do funil.",
+    description: "Eventos e microconversões mapeados desde o primeiro clique.",
     icon: TrackingIcon,
     stat: "100%",
     statLabel: "dos eventos trackeados"
   },
   {
     title: "Alta Velocidade",
-    description: "Performance otimizada para carregamento ultra-rapido e melhor SEO.",
+    description: "Performance técnica para reduzir fricção e abandono.",
     icon: SpeedIcon,
     stat: "<2s",
     statLabel: "tempo de carregamento"
@@ -51,7 +51,7 @@ export function Features() {
             animation="fade"
           />
           <AnimatedText
-            text="Por que nossas LPs convertem mais"
+            text="Nossa abordagem para conversão"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E1E1E]"
             as="h2"
             animation="reveal"
@@ -73,26 +73,26 @@ export function Features() {
               }}
               className="group"
             >
-              <div className="bg-[#1E1E1E] rounded-2xl p-8 h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row gap-6">
-                {/* Icon and content */}
-                <div className="flex-1">
+              <div className="bg-[#1E1E1E] rounded-2xl p-8 h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                {/* Icon and content - main focus */}
+                <div className="mb-6">
                   <div className="w-14 h-14 rounded-xl bg-[#FD3434]/10 flex items-center justify-center mb-6 group-hover:bg-[#FD3434] transition-colors">
                     <feature.icon className="w-7 h-7 text-[#FD3434] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-white/70 text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
 
-                {/* Stat */}
-                <div className="md:border-l md:border-white/10 md:pl-6 flex md:flex-col items-center md:items-start justify-center">
-                  <span className="text-4xl md:text-5xl font-bold text-[#FD3434]">
+                {/* Stat - secondary, smaller */}
+                <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                  <span className="text-2xl font-bold text-[#FD3434]">
                     {feature.stat}
                   </span>
-                  <span className="text-white/40 text-xs uppercase tracking-wider ml-3 md:ml-0 md:mt-2">
+                  <span className="text-white/40 text-xs uppercase tracking-wider">
                     {feature.statLabel}
                   </span>
                 </div>

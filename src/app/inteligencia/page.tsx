@@ -57,8 +57,7 @@ export default function InteligenciaPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10"
             >
-              Dashboards inteligentes, tracking preciso e dados acionáveis
-              para decisões que geram resultados.
+              Tecnologia e estratégia para decisões que performam.
             </motion.p>
 
             {/* CTA */}
@@ -72,7 +71,7 @@ export default function InteligenciaPage() {
                 onClick={() => document.getElementById("ecommerce-demo")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-8 py-4 rounded-full bg-[#FD3434] text-white font-medium hover:bg-[#FD3434]/90 transition-colors"
               >
-                Ver Demonstração
+                Ver dados em ação
               </button>
             </motion.div>
           </div>

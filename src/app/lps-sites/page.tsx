@@ -46,7 +46,7 @@ export default function LPsSitesPage() {
               LPs & Sites
             </motion.span>
             <AnimatedText
-              text="Landing Pages & Sites de Alta Conversão"
+              text="Landing Pages e Sites que Convertem"
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               as="h1"
               animation="words"
@@ -58,8 +58,7 @@ export default function LPsSitesPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10"
             >
-              Páginas otimizadas para conversão, com design impactante,
-              tracking completo e performance excepcional.
+              Páginas construídas com foco em experiência, dados e conversão.
             </motion.p>
 
             {/* CTA */}
@@ -70,13 +69,13 @@ export default function LPsSitesPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button variant="primary" size="lg" magnetic>
-                Solicitar Orçamento
+                Planejar minha página
               </Button>
               <button
                 onClick={() => document.getElementById("lp-preview")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-8 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors"
               >
-                Ver Exemplos
+                Explorar cases
               </button>
             </motion.div>
           </div>

@@ -9,7 +9,7 @@ const tools = [
   { name: "Python", category: "Backend" },
   { name: "MySQL", category: "Database" },
   { name: "MongoDB", category: "Database" },
-  { name: "n8n", category: "Automacao" },
+  { name: "n8n", category: "Automação" },
   { name: "Google Analytics", category: "Analytics" }
 ]
 
@@ -71,14 +71,14 @@ export function Tools() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <p className="text-white/40 text-sm mb-6">
-            Precisa de consultoria especializada em dados e tracking?
+          <p className="text-white/60 text-lg mb-3">
+            Estruture dados e tracking para decisões melhores.
           </p>
           <a
             href="#contato"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#FD3434] text-white font-medium rounded-full hover:bg-[#e02e2e] transition-colors"
           >
-            Solicitar Consultoria
+            Solicitar diagnóstico
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

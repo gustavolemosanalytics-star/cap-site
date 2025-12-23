@@ -8,36 +8,33 @@ const steps = [
   {
     number: "01",
     title: "Planejamento com Dados",
-    description: "Estrategia de Publicos, Construcao de Jornada",
+    description: "Estratégia de Públicos, Construção de Jornada",
     details: [
-      "Analise de mercado e concorrencia",
-      "Definicao de personas",
-      "Mapeamento da jornada do cliente",
-      "KPIs e metricas de sucesso"
+      "Análise de mercado e concorrência",
+      "Definição de personas",
+      "KPIs e métricas de sucesso"
     ],
     color: "#FD3434"
   },
   {
     number: "02",
-    title: "Execucao com Precisao",
-    description: "Landing Pages, Tracking, Automacoes, Gestao de Redes, Criativos com IA",
+    title: "Execução com Precisão",
+    description: "Landing Pages, Tracking, Automações, Gestão de Redes, Criativos com IA",
     details: [
-      "Desenvolvimento de landing pages",
-      "Implementacao de tracking completo",
-      "Automacao de campanhas",
-      "Producao de criativos com IA"
+      "Implementação de tracking completo",
+      "Automação de campanhas",
+      "Produção de criativos com IA"
     ],
     color: "#E6E1C3"
   },
   {
     number: "03",
-    title: "Otimizacao Inteligente",
-    description: "Analise de Dados, Relatorios Interativos, Testes A/B",
+    title: "Otimização Inteligente",
+    description: "Análise de Dados, Relatórios Interativos, Testes A/B",
     details: [
-      "Analise continua de performance",
-      "Relatorios em tempo real",
-      "Testes A/B constantes",
-      "Otimizacao baseada em dados"
+      "Análise contínua de performance",
+      "Relatórios em tempo real",
+      "Otimização baseada em dados"
     ],
     color: "#717178"
   }

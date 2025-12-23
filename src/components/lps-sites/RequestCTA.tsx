@@ -34,7 +34,7 @@ export function RequestCTA() {
           </motion.div>
 
           <AnimatedText
-            text="Pronto para converter mais?"
+            text="Vamos estruturar sua página para conversão"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
             as="h2"
             animation="reveal"
@@ -46,21 +46,17 @@ export function RequestCTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-white/60 text-lg mb-10 max-w-xl mx-auto"
           >
-            Solicite um orcamento para sua landing page ou site.
-            Resposta em ate 24 horas uteis.
+            Analisamos seu cenário e indicamos a melhor estrutura antes da execução.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
             <Button variant="primary" size="lg" magnetic>
-              Solicitar Orcamento
-            </Button>
-            <Button variant="outline" size="lg">
-              Ver Mais Projetos
+              Solicitar diagnóstico
             </Button>
           </motion.div>
 
@@ -73,15 +69,15 @@ export function RequestCTA() {
           >
             <span className="flex items-center gap-2">
               <CheckIcon className="w-4 h-4 text-[#FD3434]" />
-              Entrega rapida
+              Estrutura validada por dados
             </span>
             <span className="flex items-center gap-2">
               <CheckIcon className="w-4 h-4 text-[#FD3434]" />
-              Suporte dedicado
+              Tracking desde o primeiro clique
             </span>
             <span className="flex items-center gap-2">
               <CheckIcon className="w-4 h-4 text-[#FD3434]" />
-              Tracking incluso
+              Arquitetura pensada para conversão
             </span>
           </motion.div>
         </div>

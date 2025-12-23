@@ -19,7 +19,7 @@ export default function AgenciaPage() {
               transition={{ duration: 0.6 }}
               className="inline-block text-[#FD3434] text-sm uppercase tracking-[0.3em] mb-4"
             >
-              A Agencia
+              A Agência
             </motion.span>
             <AnimatedText
               text="Performance 360°"
@@ -34,8 +34,8 @@ export default function AgenciaPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto"
             >
-              Estrategia, execucao e otimizacao. Um ciclo completo de performance
-              para levar sua marca ao proximo nivel.
+              Estratégia, execução e otimização. Um ciclo completo de performance
+              para levar sua marca ao próximo nível.
             </motion.p>
           </div>
         </section>

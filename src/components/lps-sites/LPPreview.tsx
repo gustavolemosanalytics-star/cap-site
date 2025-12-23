@@ -70,26 +70,18 @@ export function LPPreview({ id }: LPPreviewProps) {
         {/* Header */}
         <div className="text-center mb-16">
           <AnimatedText
-            text="Exemplos de Landing Pages"
+            text="O trabalho fala por si"
             className="text-sm uppercase tracking-[0.3em] text-[#717178] mb-4"
             as="span"
             animation="fade"
           />
           <AnimatedText
-            text="Veja nossas LPs em ação"
+            text="Cases"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E1E1E] mb-6"
             as="h2"
             animation="words"
             delay={0.2}
           />
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-[#1E1E1E]/60 text-lg max-w-2xl mx-auto"
-          >
-            Confira modelos de landing pages desenvolvidas pela CAP.CO com foco em conversão e performance.
-          </motion.p>
         </div>
 
         {/* LPs Grid */}

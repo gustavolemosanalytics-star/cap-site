@@ -13,7 +13,7 @@ const navLinks = [
 
 const socialLinks = [
   { href: "https://instagram.com/cap.performance", label: "Instagram", icon: InstagramIcon },
-  { href: "https://linkedin.com/company/capdigital", label: "LinkedIn", icon: LinkedInIcon }
+  { href: "https://www.linkedin.com/company/capdigital-company", label: "LinkedIn", icon: LinkedInIcon }
 ]
 
 export function Footer() {

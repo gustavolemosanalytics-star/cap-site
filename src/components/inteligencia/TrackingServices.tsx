@@ -6,13 +6,13 @@ import { AnimatedText } from "@/components/shared/AnimatedText"
 
 const services = [
   {
-    title: "Conversoes Offline",
+    title: "Conversões Offline",
     description: "Integre dados de vendas offline com suas campanhas digitais para medir o impacto real.",
     icon: OfflineIcon
   },
   {
     title: "Conversions API (CAPI)",
-    description: "Envie dados de conversao diretamente para as plataformas, sem depender de cookies.",
+    description: "Envie dados de conversão diretamente para as plataformas, sem depender de cookies.",
     icon: APIIcon
   },
   {
@@ -22,17 +22,17 @@ const services = [
   },
   {
     title: "Server-Side Tracking",
-    description: "Tracking robusto via servidor para maior precisao e privacidade dos dados.",
+    description: "Tracking robusto via servidor para maior precisão e privacidade dos dados.",
     icon: ServerIcon
   },
   {
-    title: "Pixel/Tags",
-    description: "Implementacao e auditoria de pixels para rastreamento completo de eventos.",
+    title: "Pixel e Tags",
+    description: "Implementação e auditoria de pixels para rastreamento completo de eventos.",
     icon: PixelIcon
   },
   {
-    title: "Atribuicao Avancada",
-    description: "Modelos de atribuicao customizados para entender o valor de cada touchpoint.",
+    title: "Atribuição Avançada",
+    description: "Modelos de atribuição customizados para entender o valor de cada touchpoint.",
     icon: AttributionIcon
   }
 ]
@@ -47,7 +47,7 @@ export function TrackingServices() {
         {/* Header */}
         <div className="text-center mb-16">
           <AnimatedText
-            text="Servicos de Tracking"
+            text="Serviços de Tracking"
             className="text-sm uppercase tracking-[0.3em] text-[#717178] mb-4"
             as="span"
             animation="fade"
