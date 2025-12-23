@@ -46,7 +46,7 @@ export function RequestCTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-white/60 text-lg mb-10 max-w-xl mx-auto"
           >
-            Analisamos seu cenário e indicamos a melhor estrutura antes da execução.
+            Analisamos seu cenário, indicamos e implementamos a melhor estrutura.
           </motion.p>
 
           <motion.div
