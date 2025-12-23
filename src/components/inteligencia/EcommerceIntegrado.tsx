@@ -46,6 +46,11 @@ const dashboards = [
     title: "Dashboard Churrasquinho",
     url: "https://churrasquinho.capdigital.company/",
     domain: "churrasquinho.capdigital.company"
+  },
+  {
+    title: "Dashboard Franquia",
+    url: "https://dash-modelofranq-cap.vercel.app/",
+    domain: "dash-modelofranq-cap.vercel.app"
   }
 ]
 
