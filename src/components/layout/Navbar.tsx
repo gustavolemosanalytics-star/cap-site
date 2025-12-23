@@ -107,7 +107,7 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="primary" size="sm" magnetic>
-              Fale Conosco
+              Fale com um especialista
             </Button>
           </div>
 
@@ -174,7 +174,7 @@ export function Navbar() {
                 className="mt-8"
               >
                 <Button variant="primary" size="lg">
-                  Fale Conosco
+                  Fale com um especialista
                 </Button>
               </motion.div>
             </div>

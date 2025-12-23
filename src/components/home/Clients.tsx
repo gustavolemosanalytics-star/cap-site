@@ -8,7 +8,7 @@ import { AnimatedText } from "@/components/shared/AnimatedText"
 const clients = [
   "Governo da Bahia",
   "Fiolaser",
-  "Prefeitura de Feira",
+  "Prefeitura de Feira de Santana",
   "Neoenergia",
   "Embasa",
   "Shopping Barra",
@@ -37,13 +37,13 @@ export function Clients() {
         {/* Header */}
         <div className="text-center mb-16">
           <AnimatedText
-            text="Confianca que gera performance"
+            text="Confiança que gera performance"
             className="text-sm uppercase tracking-[0.3em] text-[#717178] mb-4"
             as="span"
             animation="fade"
           />
           <AnimatedText
-            text="Clientes que confiam em nos"
+            text="Clientes que confiam em nós"
             className="text-3xl md:text-4xl font-bold text-white"
             as="h2"
             animation="reveal"
@@ -73,7 +73,7 @@ export function Clients() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-[#717178] text-sm uppercase tracking-[0.2em] mb-8"
           >
-            Plataformas que dominamos
+            Plataformas mais utilizadas
           </motion.p>
 
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">

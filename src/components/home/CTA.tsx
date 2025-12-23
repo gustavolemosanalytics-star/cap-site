@@ -39,13 +39,13 @@ export function CTA() {
           {/* Left side - Text */}
           <div>
             <AnimatedText
-              text="Estrategia clara."
+              text="Estratégia clara."
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               as="h2"
               animation="reveal"
             />
             <AnimatedText
-              text="Resultados extraordinarios."
+              text="Resultados extraordinários."
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FD3434] leading-tight mt-2"
               as="h2"
               animation="reveal"
@@ -58,8 +58,7 @@ export function CTA() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-white/60 text-lg mt-8 max-w-md"
             >
-              Pronto para transformar seus resultados de marketing digital?
-              Entre em contato e descubra como podemos ajudar.
+              Planejamos, executamos e otimizamos estratégias de marketing orientadas por dados, tecnologia e inteligência artificial para gerar crescimento real.
             </motion.p>
 
             {/* WhatsApp Direct Link */}
@@ -76,7 +75,7 @@ export function CTA() {
                 className="inline-flex items-center gap-3 text-white/60 hover:text-white transition-colors"
               >
                 <WhatsAppIcon className="w-6 h-6 text-[#25D366]" />
-                <span>Fale direto pelo WhatsApp</span>
+                <span>Converse com quem entende de performance</span>
               </a>
             </motion.div>
           </div>
@@ -143,12 +142,12 @@ export function CTA() {
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-[#FD3434] transition-colors resize-none"
-                    placeholder="Como podemos ajudar?"
+                    placeholder="Descreva brevemente sua necessidade"
                   />
                 </div>
 
                 <Button type="submit" variant="primary" size="lg" className="w-full" magnetic>
-                  Enviar Mensagem
+                  Solicitar análise
                 </Button>
               </div>
             </form>

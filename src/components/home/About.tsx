@@ -6,23 +6,23 @@ import { AnimatedText } from "@/components/shared/AnimatedText"
 
 const pillars = [
   {
-    title: "Analise de Dados",
-    description: "Transformamos dados em insights acionaveis para decisoes estrategicas.",
+    title: "Análise de Dados",
+    description: "Transformamos dados em insights acionáveis para decisões estratégicas.",
     icon: DataIcon
   },
   {
-    title: "Midia e Automacao",
-    description: "Campanhas otimizadas com tecnologia de ponta e automacao inteligente.",
+    title: "Mídia e Automação",
+    description: "Campanhas otimizadas com tecnologia de ponta e automação inteligente.",
     icon: MediaIcon
   },
   {
     title: "IA First",
-    description: "Inteligencia artificial aplicada em todas as etapas do processo.",
+    description: "Inteligência artificial aplicada em todas as etapas do processo.",
     icon: AIIcon
   },
   {
     title: "Time + Tecnologia",
-    description: "Especialistas dedicados combinados com as melhores ferramentas.",
+    description: "Especialistas focados em performance, com tecnologia aplicada para maximizar resultados.",
     icon: TeamIcon
   }
 ]
@@ -37,13 +37,13 @@ export function About() {
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
           <AnimatedText
-            text="Sobre Nos"
+            text="Sobre Nós"
             className="text-sm uppercase tracking-[0.3em] text-[#717178] mb-4"
             as="span"
             animation="fade"
           />
           <AnimatedText
-            text="Na CAP.CO, unimos midia, dados e tecnologia para transformar informacao em performance real."
+            text="Na CAP.CO, unimos mídia, dados e tecnologia para transformar informação em performance real."
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight"
             as="h2"
             animation="words"

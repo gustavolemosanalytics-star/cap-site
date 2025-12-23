@@ -3,12 +3,11 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Counter } from "@/components/shared/Counter"
-import { ScrollIndicator } from "@/components/shared/ScrollIndicator"
 import { RotatingText } from "@/components/shared/RotatingText"
 
 const stats = [
-  { value: 10, prefix: "+", suffix: "MI", label: "investidos em anuncios" },
-  { value: 97, prefix: "+", suffix: "MI", label: "usuarios alcancados" },
+  { value: 10, prefix: "+", suffix: "MI", label: "investidos em anúncios" },
+  { value: 97, prefix: "+", suffix: "MI", label: "usuários alcançados" },
   { value: 600, prefix: "+", suffix: "MI", label: "impactos gerados" }
 ]
 
@@ -61,7 +60,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
           >
-            Comunicação e Alta{" "}
+            Comunicação e Alta
+            <br />
             <RotatingText
               texts={["Performance", "Capacidade", "Competência", "Eficiência"]}
               mainClassName="px-3 md:px-4 bg-[#E6E1C3] text-[#1E1E1E] overflow-hidden py-1 md:py-2 justify-center rounded-lg"
@@ -111,10 +111,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <ScrollIndicator variant="mouse" />
-      </div>
     </section>
   )
 }
