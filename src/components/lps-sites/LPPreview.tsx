@@ -9,32 +9,50 @@ const lpModelos = [
   {
     title: "LP Modelo 1",
     url: "https://lp-modelo-cap.vercel.app/",
-    domain: "lp-modelo-cap.vercel.app"
+    domain: "lp-modelo-cap.vercel.app",
+    category: "Varejo"
   },
   {
     title: "LP Modelo 2",
     url: "https://lp-modelo.vercel.app/",
-    domain: "lp-modelo.vercel.app"
+    domain: "lp-modelo.vercel.app",
+    category: "E-commerce"
+  },
+  {
+    title: "LP Saúde",
+    url: "https://lp-saude-cap.vercel.app/",
+    domain: "lp-saude-cap.vercel.app",
+    category: "Saúde"
+  },
+  {
+    title: "LP Ensino",
+    url: "https://lp-modeloensino-cap.vercel.app/",
+    domain: "lp-modeloensino-cap.vercel.app",
+    category: "Educação"
   },
   {
     title: "Site Modelo",
     url: "https://site-cap-modelo.vercel.app/",
-    domain: "site-cap-modelo.vercel.app"
+    domain: "site-cap-modelo.vercel.app",
+    category: "Institucional"
   },
   {
     title: "Site Modelo 2",
     url: "https://cap-site-modelo-1.vercel.app/",
-    domain: "cap-site-modelo-1.vercel.app"
+    domain: "cap-site-modelo-1.vercel.app",
+    category: "Institucional"
   },
   {
     title: "Site Modelo 3",
     url: "https://cap-site-modelo-2.vercel.app/",
-    domain: "cap-site-modelo-2.vercel.app"
+    domain: "cap-site-modelo-2.vercel.app",
+    category: "Institucional"
   },
   {
     title: "Vertex Brilliance",
     url: "https://vertex-brilliance.vercel.app/",
-    domain: "vertex-brilliance.vercel.app"
+    domain: "vertex-brilliance.vercel.app",
+    category: "Tecnologia"
   }
 ]
 
@@ -111,8 +129,16 @@ export function LPPreview({ id }: LPPreviewProps) {
                 </div>
               </div>
 
+              {/* Title and Category */}
+              <div className="text-center mt-6 mb-4">
+                <span className="inline-block px-3 py-1 bg-[#FD3434] text-white text-xs font-medium rounded-full mb-2">
+                  {lp.category}
+                </span>
+                <h3 className="text-[#1E1E1E] text-xl font-bold">{lp.title}</h3>
+              </div>
+
               {/* CTA Button */}
-              <div className="text-center mt-6">
+              <div className="text-center">
                 <a
                   href={lp.url}
                   target="_blank"
