@@ -43,6 +43,11 @@ const dashboards = [
     domain: "cap-dashmodelo-imb.vercel.app"
   },
   {
+    title: "Dashboard Mobile First",
+    url: "https://mobilefirst-dash-cap.vercel.app/",
+    domain: "mobilefirst-dash-cap.vercel.app"
+  },
+  {
     title: "Dashboard Franquia",
     url: "https://dash-modelofranq-cap.vercel.app/",
     domain: "dash-modelofranq-cap.vercel.app"
