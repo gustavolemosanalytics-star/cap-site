@@ -2,20 +2,21 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 import { Ticker } from "@/components/shared/Ticker"
 import { AnimatedText } from "@/components/shared/AnimatedText"
 
-const clients = [
-  "Governo da Bahia",
-  "Fiolaser",
-  "Prefeitura de Feira de Santana",
-  "Neoenergia",
-  "Embasa",
-  "Shopping Barra",
-  "Mundo Verde",
-  "Itaipava Arena Fonte Nova",
-  "Prefeitura de Salvador",
-  "Afropunk"
+const clientImages = [
+  "/imagens_clientes/governo_da_bahia.png",
+  "/imagens_clientes/fio_laser.png",
+  "/imagens_clientes/prefeitura_feira_de_santana.png",
+  "/imagens_clientes/neoenergia.png",
+  "/imagens_clientes/embasa.png",
+  "/imagens_clientes/shopping_barra.png",
+  "/imagens_clientes/mundo_verde.png",
+  "/imagens_clientes/itaipava_arena_fonte_nova.png",
+  "/imagens_clientes/prefeitura_salvador.png",
+  "/imagens_clientes/afropunk.png"
 ]
 
 const platforms = [
@@ -54,13 +55,20 @@ export function Clients() {
         {/* Clients Ticker */}
         <div className="mb-24 -mx-6 md:-mx-12">
           <Ticker speed="slow" className="py-8 border-y border-white/5">
-            {clients.map((client, index) => (
-              <span
+            {clientImages.map((imagePath, index) => (
+              <div
                 key={index}
-                className="text-2xl md:text-3xl font-bold text-white/20 hover:text-white/60 transition-colors duration-300 whitespace-nowrap"
+                className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-40 hover:opacity-80 transition-opacity duration-300"
               >
-                {client}
-              </span>
+                <Image
+                  src={imagePath}
+                  alt={`Cliente ${index + 1}`}
+                  width={150}
+                  height={80}
+                  className="h-full w-auto object-contain"
+                  unoptimized
+                />
+              </div>
             ))}
           </Ticker>
         </div>
