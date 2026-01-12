@@ -57,7 +57,7 @@ export function Clients() {
           <Ticker speed="slow" className="py-8 border-y border-white/5">
             {clientImages.map((imagePath, index) => (
               <div
-                key={index}
+                key={`client-${index}`}
                 className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-40 hover:opacity-80 transition-opacity duration-300"
               >
                 <Image
@@ -66,7 +66,7 @@ export function Clients() {
                   width={150}
                   height={80}
                   className="h-full w-auto object-contain"
-                  unoptimized
+                  priority={index < 3}
                 />
               </div>
             ))}
