@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
-import { Ticker } from "@/components/shared/Ticker"
 import { AnimatedText } from "@/components/shared/AnimatedText"
 
 const clientImages = [
@@ -54,23 +53,38 @@ export function Clients() {
 
         {/* Clients Ticker */}
         <div className="mb-24 -mx-6 md:-mx-12">
-          <Ticker speed="slow" className="py-8 border-y border-white/5">
-            {clientImages.map((imagePath, index) => (
-              <div
-                key={`client-${index}`}
-                className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-40 hover:opacity-80 transition-opacity duration-300"
-              >
-                <Image
-                  src={imagePath}
-                  alt={`Cliente ${index + 1}`}
-                  width={150}
-                  height={80}
-                  className="h-full w-auto object-contain"
-                  priority={index < 3}
-                />
-              </div>
-            ))}
-          </Ticker>
+          <div className="py-8 border-y border-white/5 overflow-hidden">
+            <motion.div
+              className="flex"
+              animate={{
+                x: [0, -2000]
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear"
+                }
+              }}
+            >
+              {[...clientImages, ...clientImages, ...clientImages].map((imagePath, index) => (
+                <div
+                  key={`client-${index}`}
+                  className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
+                >
+                  <Image
+                    src={imagePath}
+                    alt={`Cliente ${(index % clientImages.length) + 1}`}
+                    width={150}
+                    height={80}
+                    className="h-full w-auto object-contain"
+                    priority={index < 3}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Platforms Section */}

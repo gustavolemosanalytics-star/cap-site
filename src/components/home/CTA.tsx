@@ -14,13 +14,34 @@ export function CTA() {
     phone: "",
     message: ""
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Redirecionar para WhatsApp com mensagem
-    const whatsappMessage = `Ola! Meu nome e ${formState.name}. ${formState.message}`
-    const whatsappUrl = `https://wa.me/5571999999999?text=${encodeURIComponent(whatsappMessage)}`
-    window.open(whatsappUrl, "_blank")
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formState)
+      })
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        setFormState({ name: "", email: "", phone: "", message: "" })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch {
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -146,9 +167,28 @@ export function CTA() {
                   />
                 </div>
 
-                <Button type="submit" variant="primary" size="lg" className="w-full" magnetic>
-                  Solicitar análise
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                  magnetic
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Enviando..." : "Solicitar análise"}
                 </Button>
+
+                {submitStatus === "success" && (
+                  <p className="text-green-400 text-sm text-center mt-4">
+                    Mensagem enviada com sucesso! Entraremos em contato em breve.
+                  </p>
+                )}
+
+                {submitStatus === "error" && (
+                  <p className="text-red-400 text-sm text-center mt-4">
+                    Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.
+                  </p>
+                )}
               </div>
             </form>
           </motion.div>
