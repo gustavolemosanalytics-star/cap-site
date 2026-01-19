@@ -1,9 +1,43 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { AnimatedText } from "@/components/shared/AnimatedText"
 import { Button } from "@/components/shared/Button"
+
+// Função para obter cookie pelo nome
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop()?.split(";").shift() || null
+  return null
+}
+
+// Função para obter parâmetro da URL
+function getUrlParam(name: string): string | null {
+  if (typeof window === "undefined") return null
+  const urlParams = new URLSearchParams(window.location.search)
+  return urlParams.get(name)
+}
+
+// Função para formatar telefone
+function formatPhone(value: string): string {
+  // Remove tudo que não é número
+  const numbers = value.replace(/\D/g, "")
+
+  // Limita a 11 dígitos (DDD + 9 dígitos)
+  const limited = numbers.slice(0, 11)
+
+  // Formata como (XX) XXXXX-XXXX
+  if (limited.length <= 2) {
+    return limited
+  } else if (limited.length <= 7) {
+    return `(${limited.slice(0, 2)}) ${limited.slice(2)}`
+  } else {
+    return `(${limited.slice(0, 2)}) ${limited.slice(2, 7)}-${limited.slice(7)}`
+  }
+}
 
 export function CTA() {
   const ref = useRef(null)
@@ -16,6 +50,25 @@ export function CTA() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [marketingData, setMarketingData] = useState({
+    fbc: null as string | null,
+    fbp: null as string | null,
+    gclid: null as string | null
+  })
+
+  // Capturar cookies e parâmetros de marketing ao montar
+  useEffect(() => {
+    setMarketingData({
+      fbc: getCookie("_fbc"),
+      fbp: getCookie("_fbp"),
+      gclid: getUrlParam("gclid") || getCookie("gclid")
+    })
+  }, [])
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value)
+    setFormState({ ...formState, phone: formatted })
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,7 +81,10 @@ export function CTA() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(formState)
+        body: JSON.stringify({
+          ...formState,
+          ...marketingData
+        })
       })
 
       if (response.ok) {
@@ -147,7 +203,8 @@ export function CTA() {
                     type="tel"
                     id="phone"
                     value={formState.phone}
-                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                    onChange={handlePhoneChange}
+                    maxLength={16}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-[#FD3434] transition-colors"
                     placeholder="(00) 00000-0000"
                   />
