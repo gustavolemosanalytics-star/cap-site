@@ -32,19 +32,19 @@ export function Clients() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-[#1E1E1E]">
+    <section ref={ref} className="py-24 md:py-32 bg-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <AnimatedText
             text="Confiança que gera performance"
-            className="text-sm uppercase tracking-[0.3em] text-[#717178] mb-4"
+            className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4"
             as="span"
             animation="fade"
           />
           <AnimatedText
             text="Clientes que confiam em nós"
-            className="text-3xl md:text-4xl font-bold text-white"
+            className="text-3xl md:text-4xl font-bold text-black"
             as="h2"
             animation="reveal"
             delay={0.2}
@@ -53,7 +53,7 @@ export function Clients() {
 
         {/* Clients Ticker */}
         <div className="mb-24 -mx-6 md:-mx-12">
-          <div className="py-8 border-y border-white/5 overflow-hidden">
+          <div className="py-8 border-y border-black/10 overflow-hidden">
             <motion.div
               className="flex"
               animate={{
@@ -71,7 +71,7 @@ export function Clients() {
               {[...clientImages, ...clientImages, ...clientImages].map((imagePath, index) => (
                 <div
                   key={`client-${index}`}
-                  className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
+                  className="flex items-center justify-center mx-8 h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 flex-shrink-0"
                 >
                   <Image
                     src={imagePath}
@@ -93,7 +93,7 @@ export function Clients() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-[#717178] text-sm uppercase tracking-[0.2em] mb-8"
+            className="text-gray-500 text-sm uppercase tracking-[0.2em] mb-8"
           >
             Plataformas mais utilizadas
           </motion.p>
@@ -109,9 +109,9 @@ export function Clients() {
                   delay: 0.5 + index * 0.1,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                className="px-6 py-3 rounded-full border border-black/10 bg-black/5 hover:bg-black/10 transition-colors group"
               >
-                <span className="text-white/60 group-hover:text-white transition-colors font-medium">
+                <span className="text-black/60 group-hover:text-black transition-colors font-medium">
                   {platform.name}
                 </span>
               </motion.div>
