@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "CAP.CO | Comunicacao e Alta Performance",
     description: "Agencia de marketing digital focada em performance, dados e inteligencia.",
     url: "https://capdigital.company",
-    siteName: "CAP.CO",
+    siteName: "Cap Digital",
     locale: "pt_BR",
     type: "website",
   },
