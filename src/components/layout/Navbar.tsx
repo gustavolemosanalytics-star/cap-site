@@ -11,7 +11,8 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/agencia", label: "Agência" },
   { href: "/inteligencia", label: "Inteligência e Dashboards" },
-  { href: "/lps-sites", label: "LPs & Sites" }
+  { href: "/lps-sites", label: "LPs & Sites" },
+  { href: "/trabalhe-conosco", label: "Trabalhe Conosco" }
 ]
 
 export function Navbar() {
