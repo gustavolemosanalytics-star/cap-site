@@ -11,7 +11,6 @@ export default function TrabalheConoscoPage() {
     email: "",
     telefone: "",
     portfolio: "",
-    mensagem: "",
   })
   const [enviando, setEnviando] = useState(false)
   const [enviado, setEnviado] = useState(false)
@@ -22,7 +21,7 @@ export default function TrabalheConoscoPage() {
 
     const mailtoSubject = encodeURIComponent("Candidatura - Creator & Content Designer")
     const mailtoBody = encodeURIComponent(
-      `Nome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nPortflio: ${formData.portfolio}\n\nMensagem:\n${formData.mensagem}`
+      `Nome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nPortfólio: ${formData.portfolio}`
     )
     const mailtoLink = `mailto:pedro@capdigital.company,guilherme@capdigital.company?subject=${mailtoSubject}&body=${mailtoBody}`
 
@@ -71,7 +70,7 @@ export default function TrabalheConoscoPage() {
               Trabalhe Conosco
             </motion.span>
             <AnimatedText
-              text="Faa Parte do Nosso Time"
+              text="Faça Parte do Nosso Time"
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               as="h1"
               animation="words"
@@ -83,7 +82,7 @@ export default function TrabalheConoscoPage() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10"
             >
-              Estamos sempre em busca de pessoas criativas e apaixonadas por inovao.
+              Estamos sempre em busca de pessoas criativas e apaixonadas por inovação.
             </motion.p>
 
             <motion.div
@@ -92,8 +91,11 @@ export default function TrabalheConoscoPage() {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <button
-                onClick={() => document.getElementById("vaga")?.scrollIntoView({ behavior: "smooth" })}
-                className="px-8 py-4 rounded-full bg-[#FD3434] text-white font-medium hover:bg-[#FD3434]/90 transition-colors"
+                onClick={() => {
+                  const el = document.getElementById("vaga")
+                  if (el) window.scrollTo({ top: el.offsetTop, behavior: "smooth" })
+                }}
+                className="px-8 py-4 rounded-full bg-[#FD3434] text-white font-medium hover:bg-[#FD3434]/90 transition-colors cursor-pointer"
               >
                 Ver vaga aberta
               </button>
@@ -134,8 +136,8 @@ export default function TrabalheConoscoPage() {
                   Creator & Content Designer
                 </h2>
                 <p className="text-white/60 text-lg">
-                  A CAP.CO est em busca de uma pessoa criativa, organizada e mo na massa para atuar na criao e gesto de contedos digitais.
-                  Se voc curte transitar entre design, redes sociais e produo de contedo, essa vaga  pra voc.
+                  A CAP.CO está em busca de uma pessoa criativa, organizada e mão na massa para atuar na criação e gestão de conteúdos digitais.
+                  Se você curte transitar entre design, redes sociais e produção de conteúdo, essa vaga é pra você.
                 </p>
               </div>
 
@@ -152,12 +154,12 @@ export default function TrabalheConoscoPage() {
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Criar peas visuais (cards, apresentaes e materiais digitais)",
-                    "Planejar, publicar e gerenciar contedos nas redes sociais",
-                    "Desenvolver roteiros para vdeos (principalmente para redes sociais)",
-                    "Editar vdeos simples (reels, stories, cortes, etc.)",
-                    "Apoiar na construo de linhas editoriais e calendrio de contedo",
-                    "Acompanhar desempenho bsico das publicaes",
+                    "Criar peças visuais (cards, apresentações e materiais digitais)",
+                    "Planejar, publicar e gerenciar conteúdos nas redes sociais",
+                    "Desenvolver roteiros para vídeos (principalmente para redes sociais)",
+                    "Editar vídeos simples (reels, stories, cortes, etc.)",
+                    "Apoiar na construção de linhas editoriais e calendário de conteúdo",
+                    "Acompanhar desempenho básico das publicações",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-white/70">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FD3434] mt-2 shrink-0" />
@@ -180,11 +182,11 @@ export default function TrabalheConoscoPage() {
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Experincia com design (Photoshop, Illustrator, Canva ou similares)",
-                    "Noo de redes sociais (Instagram, TikTok, etc.)",
-                    "Habilidade bsica em edio de vdeo (CapCut, Premiere, ou similares)",
-                    "Boa escrita e organizao",
-                    "Proatividade e senso esttico apurado",
+                    "Experiência com design (Photoshop, Illustrator, Canva ou similares)",
+                    "Noção de redes sociais (Instagram, TikTok, etc.)",
+                    "Habilidade básica em edição de vídeo (CapCut, Premiere, ou similares)",
+                    "Boa escrita e organização",
+                    "Proatividade e senso estético apurado",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-white/70">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FD3434] mt-2 shrink-0" />
@@ -207,10 +209,10 @@ export default function TrabalheConoscoPage() {
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Experincia com marcas ou agncias",
-                    "Noo de trfego pago / marketing digital",
+                    "Experiência com marcas ou agências",
+                    "Noção de tráfego pago / marketing digital",
                     "Conhecimento em motion simples",
-                    "Facilidade em criar contedo criativo e atual (trends)",
+                    "Facilidade em criar conteúdo criativo e atual (trends)",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-white/70">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FD3434] mt-2 shrink-0" />
@@ -233,17 +235,36 @@ export default function TrabalheConoscoPage() {
                 </h3>
                 <div className="flex items-center gap-3 text-white/70">
                   <span className="px-4 py-2 rounded-full border border-[#FD3434]/30 bg-[#FD3434]/10 text-[#FD3434] text-sm font-medium">
-                    Hbrido
+                    Híbrido
                   </span>
                   <span>Presencial pelo menos 2x na semana</span>
                 </div>
+              </motion.div>
+
+              {/* CTA Me inscrever */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="mt-10 pt-10 border-t border-white/10 flex justify-center"
+              >
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("formulario")
+                    if (el) window.scrollTo({ top: el.offsetTop, behavior: "smooth" })
+                  }}
+                  className="px-10 py-4 rounded-full bg-[#FD3434] text-white font-bold text-lg hover:bg-[#FD3434]/90 transition-colors cursor-pointer"
+                >
+                  Me inscrever
+                </button>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Formulrio de candidatura */}
-        <section className="py-24 bg-[#E6E1C3]">
+        {/* Formulário de candidatura */}
+        <section id="formulario" className="py-24 bg-white">
           <div className="container mx-auto px-6 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -259,7 +280,7 @@ export default function TrabalheConoscoPage() {
                 Envie sua candidatura
               </h2>
               <p className="text-[#1E1E1E]/60 text-lg">
-                Preencha o formulrio abaixo e entraremos em contato.
+                Preencha o formulário abaixo e entraremos em contato.
               </p>
             </motion.div>
 
@@ -318,7 +339,7 @@ export default function TrabalheConoscoPage() {
 
               <div>
                 <label htmlFor="portfolio" className="block text-sm font-medium text-[#1E1E1E] mb-2">
-                  Link do portflio / Behance / LinkedIn
+                  Link do portfólio / Behance / LinkedIn
                 </label>
                 <input
                   type="url"
@@ -327,21 +348,6 @@ export default function TrabalheConoscoPage() {
                   onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-[#1E1E1E]/5 border border-[#1E1E1E]/10 text-[#1E1E1E] placeholder-[#1E1E1E]/40 focus:outline-none focus:border-[#FD3434] focus:ring-1 focus:ring-[#FD3434] transition-colors"
                   placeholder="https://..."
-                />
-              </div>
-
-              <div>
-                <label htmlFor="mensagem" className="block text-sm font-medium text-[#1E1E1E] mb-2">
-                  Por que voc quer fazer parte da CAP.CO? *
-                </label>
-                <textarea
-                  id="mensagem"
-                  required
-                  rows={5}
-                  value={formData.mensagem}
-                  onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#1E1E1E]/5 border border-[#1E1E1E]/10 text-[#1E1E1E] placeholder-[#1E1E1E]/40 focus:outline-none focus:border-[#FD3434] focus:ring-1 focus:ring-[#FD3434] transition-colors resize-none"
-                  placeholder="Conte um pouco sobre voc e sua experincia..."
                 />
               </div>
 
@@ -364,10 +370,6 @@ export default function TrabalheConoscoPage() {
                   Seu cliente de e-mail foi aberto com a candidatura. Envie o e-mail para concluir!
                 </motion.p>
               )}
-
-              <p className="text-center text-[#1E1E1E]/40 text-sm">
-                Seus dados sero enviados para pedro@capdigital.company e guilherme@capdigital.company
-              </p>
             </motion.form>
           </div>
         </section>
