@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
     // Enviar email
     const { data, error } = await resend.emails.send({
-      from: "CAP Digital <onboarding@resend.dev>",
+      from: "CAP Digital <contato@capdigital.company>",
       to: ["pedro@capdigital.company", "guilherme@capdigital.company"],
       replyTo: email,
       subject: `Nova candidatura - Creator & Content Designer - ${nome}`,
