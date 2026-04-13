@@ -14,10 +14,12 @@ export default function TrabalheConoscoPage() {
   })
   const [enviando, setEnviando] = useState(false)
   const [enviado, setEnviado] = useState(false)
+  const [erro, setErro] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setEnviando(true)
+    setErro(null)
 
     try {
       const response = await fetch('/api/job-application', {
@@ -34,11 +36,14 @@ export default function TrabalheConoscoPage() {
         setTimeout(() => setEnviado(false), 5000)
       } else {
         const errorData = await response.json()
-        alert(`Erro ao enviar: ${errorData.error || 'Erro desconhecido'}`)
+        const errorMessage = errorData.error || 'Erro desconhecido'
+        setErro(errorMessage)
+        console.error('Erro:', errorMessage)
       }
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Erro ao enviar a candidatura'
+      setErro(errorMessage)
       console.error('Erro:', error)
-      alert('Erro ao enviar a candidatura. Tente novamente.')
     } finally {
       setEnviando(false)
     }
@@ -381,6 +386,16 @@ export default function TrabalheConoscoPage() {
                   className="text-center text-green-700 font-medium"
                 >
                   Candidatura enviada com sucesso! Entraremos em contato em breve.
+                </motion.p>
+              )}
+
+              {erro && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-red-600 font-medium bg-red-50 p-4 rounded-lg"
+                >
+                  {erro}
                 </motion.p>
               )}
             </motion.form>

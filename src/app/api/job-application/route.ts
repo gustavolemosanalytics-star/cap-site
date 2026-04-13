@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error("Resend error:", error)
       return NextResponse.json(
-        { error: "Erro ao enviar email" },
+        { error: `Erro ao enviar email: ${JSON.stringify(error)}` },
         { status: 500 }
       )
     }
@@ -52,8 +52,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, data })
   } catch (error) {
     console.error("API error:", error)
+    const errorMessage = error instanceof Error ? error.message : String(error)
     return NextResponse.json(
-      { error: "Erro interno do servidor" },
+      { error: `Erro interno do servidor: ${errorMessage}` },
       { status: 500 }
     )
   }
