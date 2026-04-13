@@ -19,16 +19,29 @@ export default function TrabalheConoscoPage() {
     e.preventDefault()
     setEnviando(true)
 
-    const mailtoSubject = encodeURIComponent("Candidatura - Creator & Content Designer")
-    const mailtoBody = encodeURIComponent(
-      `Nome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nPortfólio: ${formData.portfolio}`
-    )
-    const mailtoLink = `mailto:pedro@capdigital.company,guilherme@capdigital.company?subject=${mailtoSubject}&body=${mailtoBody}`
+    try {
+      const response = await fetch('/api/job-application', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    window.location.href = mailtoLink
-    setEnviando(false)
-    setEnviado(true)
-    setTimeout(() => setEnviado(false), 5000)
+      if (response.ok) {
+        setEnviado(true)
+        setFormData({ nome: "", email: "", telefone: "", portfolio: "" })
+        setTimeout(() => setEnviado(false), 5000)
+      } else {
+        const errorData = await response.json()
+        alert(`Erro ao enviar: ${errorData.error || 'Erro desconhecido'}`)
+      }
+    } catch (error) {
+      console.error('Erro:', error)
+      alert('Erro ao enviar a candidatura. Tente novamente.')
+    } finally {
+      setEnviando(false)
+    }
   }
 
   return (
@@ -367,7 +380,7 @@ export default function TrabalheConoscoPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center text-green-700 font-medium"
                 >
-                  Seu cliente de e-mail foi aberto com a candidatura. Envie o e-mail para concluir!
+                  Candidatura enviada com sucesso! Entraremos em contato em breve.
                 </motion.p>
               )}
             </motion.form>
