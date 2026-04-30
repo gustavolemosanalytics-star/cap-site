@@ -81,14 +81,22 @@ const vagas: Vaga[] = [
   },
 ]
 
+const vagasVisiveis = vagas.filter((v) => v.status === "aberta")
 const vagaAberta = vagas.find((v) => v.status === "aberta")
+
+const VOLUMES_INVESTIMENTO = [
+  "Até R$ 50.000,00",
+  "Entre R$ 50.001,00 e R$ 200.000,00",
+  "Acima de R$ 200.001,00",
+] as const
 
 export default function TrabalheConoscoPage() {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
     telefone: "",
-    portfolio: "",
+    linkedin: "",
+    volumeInvestimento: "",
   })
   const [enviando, setEnviando] = useState(false)
   const [enviado, setEnviado] = useState(false)
@@ -110,7 +118,7 @@ export default function TrabalheConoscoPage() {
 
       if (response.ok) {
         setEnviado(true)
-        setFormData({ nome: "", email: "", telefone: "", portfolio: "" })
+        setFormData({ nome: "", email: "", telefone: "", linkedin: "", volumeInvestimento: "" })
         setTimeout(() => setEnviado(false), 5000)
       } else {
         const errorData = await response.json()
@@ -218,7 +226,7 @@ export default function TrabalheConoscoPage() {
         {/* Vagas */}
         <section id="vagas" className="py-24 bg-[#1E1E1E]">
           <div className="container mx-auto px-6 max-w-4xl space-y-10">
-            {vagas.map((vaga) => {
+            {vagasVisiveis.map((vaga) => {
               const encerrada = vaga.status === "encerrada"
               return (
                 <motion.div
@@ -439,18 +447,51 @@ export default function TrabalheConoscoPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="portfolio" className="block text-sm font-medium text-[#1E1E1E] mb-2">
-                    Link do portfólio / Behance / LinkedIn
+                  <label htmlFor="linkedin" className="block text-sm font-medium text-[#1E1E1E] mb-2">
+                    Link do perfil do LinkedIn *
                   </label>
                   <input
                     type="url"
-                    id="portfolio"
-                    value={formData.portfolio}
-                    onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
+                    id="linkedin"
+                    required
+                    value={formData.linkedin}
+                    onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-[#1E1E1E]/5 border border-[#1E1E1E]/10 text-[#1E1E1E] placeholder-[#1E1E1E]/40 focus:outline-none focus:border-[#FD3434] focus:ring-1 focus:ring-[#FD3434] transition-colors"
-                    placeholder="https://..."
+                    placeholder="https://www.linkedin.com/in/..."
                   />
                 </div>
+
+                <fieldset>
+                  <legend className="block text-sm font-medium text-[#1E1E1E] mb-3">
+                    Qual o volume médio de investimento em mídia que você geriu nos últimos 12 meses? *
+                  </legend>
+                  <div className="space-y-2">
+                    {VOLUMES_INVESTIMENTO.map((opcao) => {
+                      const checked = formData.volumeInvestimento === opcao
+                      return (
+                        <label
+                          key={opcao}
+                          className={`flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer transition-colors ${
+                            checked
+                              ? "bg-[#FD3434]/10 border-[#FD3434]"
+                              : "bg-[#1E1E1E]/5 border-[#1E1E1E]/10 hover:border-[#1E1E1E]/30"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="volumeInvestimento"
+                            value={opcao}
+                            required
+                            checked={checked}
+                            onChange={(e) => setFormData({ ...formData, volumeInvestimento: e.target.value })}
+                            className="accent-[#FD3434]"
+                          />
+                          <span className="text-[#1E1E1E]">{opcao}</span>
+                        </label>
+                      )
+                    })}
+                  </div>
+                </fieldset>
 
                 <motion.button
                   type="submit"

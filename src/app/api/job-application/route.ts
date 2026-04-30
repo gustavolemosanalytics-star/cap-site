@@ -4,12 +4,12 @@ import { NextRequest, NextResponse } from "next/server"
 export async function POST(request: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const { nome, email, telefone, portfolio, vaga } = await request.json()
+    const { nome, email, telefone, linkedin, volumeInvestimento, vaga } = await request.json()
 
     // Validação básica
-    if (!nome || !email || !telefone) {
+    if (!nome || !email || !telefone || !linkedin || !volumeInvestimento) {
       return NextResponse.json(
-        { error: "Nome, email e telefone são obrigatórios" },
+        { error: "Nome, email, telefone, LinkedIn e volume de investimento são obrigatórios" },
         { status: 400 }
       )
     }
@@ -32,7 +32,8 @@ export async function POST(request: NextRequest) {
             <p style="margin: 10px 0;"><strong>Nome:</strong> ${nome}</p>
             <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
             <p style="margin: 10px 0;"><strong>Telefone:</strong> ${telefone}</p>
-            <p style="margin: 10px 0;"><strong>Portfólio:</strong> ${portfolio || "Não informado"}</p>
+            <p style="margin: 10px 0;"><strong>LinkedIn:</strong> <a href="${linkedin}">${linkedin}</a></p>
+            <p style="margin: 10px 0;"><strong>Volume médio de investimento em mídia (últimos 12 meses):</strong> ${volumeInvestimento}</p>
           </div>
 
           <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
