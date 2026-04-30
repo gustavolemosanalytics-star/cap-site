@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server"
 export async function POST(request: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const { nome, email, telefone, portfolio } = await request.json()
+    const { nome, email, telefone, portfolio, vaga } = await request.json()
 
     // Validação básica
     if (!nome || !email || !telefone) {
@@ -14,16 +14,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const tituloVaga = vaga || "Vaga"
+
     // Enviar email
     const { data, error } = await resend.emails.send({
       from: "CAP Digital <dados@capdigital.company>",
       to: ["pedro@capdigital.company", "guilherme@capdigital.company"],
       replyTo: email,
-      subject: `Nova candidatura - Creator & Content Designer - ${nome}`,
+      subject: `Nova candidatura - ${tituloVaga} - ${nome}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #FD3434; border-bottom: 2px solid #FD3434; padding-bottom: 10px;">
-            Nova Candidatura - Creator & Content Designer
+            Nova Candidatura - ${tituloVaga}
           </h2>
 
           <div style="margin: 20px 0;">
