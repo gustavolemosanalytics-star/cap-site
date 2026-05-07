@@ -48,7 +48,7 @@ const vagas: Vaga[] = [
       "Conhecimento em mídia programática",
       "Certificações nas plataformas (Google, Meta, etc.)",
     ],
-    formato: "Presencial pelo menos 2x na semana",
+    formato: "Presencial 2x por semana",
   },
   {
     id: "creator-content-designer",
@@ -77,7 +77,7 @@ const vagas: Vaga[] = [
       "Conhecimento em motion simples",
       "Facilidade em criar conteúdo criativo e atual (trends)",
     ],
-    formato: "Presencial pelo menos 2x na semana",
+    formato: "Presencial 2x por semana",
   },
 ]
 
